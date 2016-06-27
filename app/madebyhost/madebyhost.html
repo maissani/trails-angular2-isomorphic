@@ -1,0 +1,34 @@
+<style>@import "css/base.css";</style>
+<md-content>
+  <md-toolbar color="#606060">
+      <a class="logo">
+          <img  class="madeforplay-logo">
+      </a>
+      <span class="app-name"> </span>
+
+      <span class="fill"></span>
+      <button md-button>
+        <i class="material-icons">account_circle</i>Se connecter
+      </button>
+      <button md-button>
+        <i class="material-icons">assignment</i>S'inscire
+      </button>
+       <button md-button>
+        <i class="material-icons">people</i>Gestion d'équipe
+      </button>
+       <button md-button>
+        <i class="material-icons">assignment_ind</i>Profil
+      </button>
+      <button md-button>
+        <i class="material-icons">assignment</i>Deconnection
+      </button>
+  </md-toolbar>
+
+  <md-progress-bar mode="indeterminate" color="primary" *ngIf="loading"></md-progress-bar>
+
+  <router-outlet></router-outlet>
+
+  <footer>
+    Copyright 2015 / 2016 -<a [href]="url"> MadeForPlay </a> Trade Mark
+  </footer>
+</md-content>

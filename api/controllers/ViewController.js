@@ -22,7 +22,7 @@ const PACKAGES = {
     main: 'index',
     defaultExtension: 'js'
   },
-  '@angular/router-deprecated': {
+  '@angular/router': {
     format: 'cjs',
     main: 'index',
     defaultExtension: 'js'
@@ -56,30 +56,45 @@ const PACKAGES = {
     defaultExtension: 'js'
   }
 };
+
+const materialPkgs = [
+  'core',
+  'button',
+  'card',
+];
+
+materialPkgs.forEach((pkg) => {
+  PACKAGES[`@angular2-material/${pkg}`] = {
+    format: 'cjs',
+    main: `${pkg}.js`
+  };
+});
+
 module.exports = class ViewController extends Controller {
   init() {
-    if(!this.todoApp) {
-      this.todoApp = require('../../dist/app/todo/app')
+    if(!this.madebyhostApp) {
+      this.madebyhostApp = require('../../dist/app/madebyhost/app')
     }
   }
 
-  todo(req, res) {
+  madebyhost(req, res) {
     this.init()
-    const todoApp = this.todoApp
+    const madebyhostApp = this.madebyhostApp
     let queryParams = ng2U.queryParamsToBoolean(req.query)
     let options = Object.assign(queryParams , {
       // client url for systemjs
       buildClientScripts: true,
       systemjs: {
-        componentUrl: 'todo/browser',
+        componentUrl: 'madebyhost/browser',
         map: {
           'angular2-universal': 'node_modules/angular2-universal',
           '@angular': 'node_modules/@angular',
-          'rxjs': 'node_modules/rxjs'
+          'rxjs': 'node_modules/rxjs', 
+          '@angular2-material' : 'node_modules/@angular2-material'
         },
         packages: PACKAGES
       },
-      directives: [todoApp.TodoApp],
+      directives: [madebyhostApp.MadebyhostApp],
       platformProviders: [
         ng2.provide(ng2U.ORIGIN_URL, {useValue: 'http://localhost:3000'}),
         ng2.provide(ng2U.BASE_URL, {useValue: '/'}),
@@ -92,6 +107,6 @@ module.exports = class ViewController extends Controller {
       preboot: queryParams.preboot === false ? null : {debug: true, uglify: false}
     })
 
-    res.render('todo/index', options)
+    res.render('madebyhost/index', options)
   }
 }

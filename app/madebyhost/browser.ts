@@ -1,11 +1,8 @@
 import {provide} from '@angular/core';
-
 import {bootstrap} from '@angular/platform-browser-dynamic';
-
-
-import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
-
+import {ROUTER_PROVIDERS} from '@angular/router';
 import {HTTP_PROVIDERS} from '@angular/http';
+import {routes} from './app.routes'
 
 // import {
 //   NG_PRELOAD_CACHE_PROVIDERS,
@@ -13,12 +10,14 @@ import {HTTP_PROVIDERS} from '@angular/http';
 // } from '../../../../modules/universal/client/client';
 
 
-import {TodoApp} from './app';
+import {MadebyhostApp} from './app';
 
 export function main() {
-  return bootstrap(TodoApp, [
+  return bootstrap(MadebyhostApp, [
     ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
+    provideRouter(routes),
+  	NODE_LOCATION_PROVIDERS,
     // NG_PRELOAD_CACHE_PROVIDERS,
     // provide(PRIME_CACHE, {useValue: true})
   ]);

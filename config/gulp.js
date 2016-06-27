@@ -26,7 +26,7 @@ module.exports = {
     },
     copy: () =>{
       return gulp.src([
-          'app/todo/css/*'
+          'app/madebyhost/css/*'
         ], { base: './' })
         .pipe(gulp.dest(dest));
     }

@@ -1,6 +1,6 @@
 import { RouterConfig } from '@angular/router';
-import { Home } from './home';
-import { NoContent } from './no-content';
+import { Home } from './home/index';
+import { NoContent } from './no-content/index';
 
 export const routes: RouterConfig = [
   { path: '',      component: Home },

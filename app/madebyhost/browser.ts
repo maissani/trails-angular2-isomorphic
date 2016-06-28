@@ -1,8 +1,8 @@
 import {provide} from '@angular/core';
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {ROUTER_PROVIDERS} from '@angular/router';
+import {provideRouter, NODE_LOCATION_PROVIDERS, ROUTER_PROVIDERS} from '@angular/router';
 import {HTTP_PROVIDERS} from '@angular/http';
-import {routes} from './app.routes'
+import {routes} from './app.routes';
 
 // import {
 //   NG_PRELOAD_CACHE_PROVIDERS,

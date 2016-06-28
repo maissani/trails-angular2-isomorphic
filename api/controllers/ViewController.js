@@ -17,58 +17,47 @@ const PACKAGES = {
     main: 'dist/browser/index',
     defaultExtension: 'js'
   },
-  '@angular/core': {
-    format: 'cjs',
-    main: 'index',
-    defaultExtension: 'js'
-  },
   '@angular/router': {
     format: 'cjs',
-    main: 'index',
-    defaultExtension: 'js'
-  },
-  '@angular/platform-browser': {
-    format: 'cjs',
-    main: 'index',
-    defaultExtension: 'js'
-  },
-  '@angular/platform-browser-dynamic': {
-    format: 'cjs',
-    main: 'index',
-    defaultExtension: 'js'
-  },
-  '@angular/http': {
-    format: 'cjs',
-    main: 'index',
-    defaultExtension: 'js'
-  },
-  '@angular/common': {
-    format: 'cjs',
-    main: 'index',
-    defaultExtension: 'js'
-  },
-  '@angular/compiler': {
-    format: 'cjs',
-    main: 'index',
+    main: 'index.js',
     defaultExtension: 'js'
   },
   rxjs: {
     defaultExtension: 'js'
   }
-};
+}
 
 const materialPkgs = [
   'core',
   'button',
   'card',
-];
+]
+
+var ngPackageNames = [
+    'common',
+    'compiler',
+    'core',
+    'http',
+    'platform-browser',
+    'platform-browser-dynamic',
+]
+
+ngPackageNames.forEach((pkg) => {
+  PACKAGES[`@angular/${pkg}`] = {
+    format: 'cjs',
+    main: `bundles/${pkg}.umd.js`, 
+    defaultExtension: 'js' 
+  }
+})
 
 materialPkgs.forEach((pkg) => {
   PACKAGES[`@angular2-material/${pkg}`] = {
     format: 'cjs',
     main: `${pkg}.js`
-  };
-});
+  }
+})
+
+console.log(PACKAGES);
 
 module.exports = class ViewController extends Controller {
   init() {
@@ -100,7 +89,8 @@ module.exports = class ViewController extends Controller {
         ng2.provide(ng2U.BASE_URL, {useValue: '/'}),
       ],
       providers: [
-        ng2.provide(ng2U.REQUEST_URL, {useValue: req.originalUrl})
+        ng2.provide(ng2U.REQUEST_URL, {useValue: req.originalUrl}),
+        ng2U.NODE_LOCATION_PROVIDERS
       ].concat(ng2U.NODE_HTTP_PROVIDERS, ng2U.NODE_ROUTER_PROVIDERS),
       data: {},
       async: queryParams.async !== false,

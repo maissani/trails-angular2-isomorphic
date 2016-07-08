@@ -1,0 +1,42 @@
+/*styles for home content only*/
+.card-container{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+}
+.sample-content{
+    flex: 1;
+}
+.card-container md-card{
+    margin: 5px;
+}
+
+.showcase-img{
+    background: url(../../assets/img/light-blue-background.jpg) no-repeat 50% 50%;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.showcase-img img{
+	padding-top: 50px;
+    height: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
+.showcase-text-title{
+	margin-left: auto;
+    margin-right: auto;
+    width: 1200PX;
+    color: 	white;
+}
+
+.showcase-text-paragraph{
+	margin-left: auto;
+    margin-right: auto;
+    width: 1200PX;
+    color: 	white;
+    padding-top: 5px;
+}

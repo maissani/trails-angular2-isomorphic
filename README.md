@@ -6,6 +6,8 @@
 
 ## Trails & angular configuration example Isomorphic Version. 
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/maissani/trails-angular2-isomorphic.svg)](https://greenkeeper.io/)
+
 This package contains an out of the box authentication api using trails and trailpack-passport and authentication frontend with angular2 and anular-jwt .
 
 ## Why Isomorphism ?

@@ -52,7 +52,7 @@
   "devDependencies": {
     "del": "^2.2.0",
     "typings": "^0.8.1",
-    "eslint": "^2.11",
+    "eslint": "^6.6",
     "eslint-config-trails": "latest",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
